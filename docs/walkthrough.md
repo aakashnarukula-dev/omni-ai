@@ -14,9 +14,9 @@ Omni always opens through the system biometric prompt (face or fingerprint, with
 
 ## 1 · Home
 
-<img src="assets/screens/01-home.png" width="320" />
+<p><img src="assets/walkthrough/01-home.png" width="420" /></p>
 
-The editorial home. Instrument-Serif greeting, a one-line status ("You have 4 tasks · 1 urgent · 2 alarms today."), the day's open tasks inline, and the top of the card stack peeking up from below. Priority colour dots, tag chips, due times. One urgent accent on P1 items.
+The editorial home. Instrument-Serif greeting, a one-line status (*"You have 4 tasks · 1 urgent · 2 alarms today."*), the day's open tasks inline, and the top of the card stack peeking up from below. Priority colour dots, tag chips, due times. One urgent accent on P1 items.
 
 The bottom dock has **Home · Tasks · Mic · Alarms · Cards**. The centre mic opens the voice overlay; the side tabs jump straight to their sections.
 
@@ -24,7 +24,7 @@ The bottom dock has **Home · Tasks · Mic · Alarms · Cards**. The centre mic 
 
 ## 2 · Voice — listening
 
-<img src="assets/screens/02-voice-listening.png" width="320" />
+<p><img src="assets/walkthrough/02-voice-listening.png" width="420" /></p>
 
 Tap the mic. Full-screen dictation. A live waveform lines up with your amplitude. Below the waveform: the interim transcript as you speak. Either the on-device speech recogniser or Deepgram (when the proxy is configured) is streaming the words.
 
@@ -34,13 +34,13 @@ Release / tap the stop button → Omni switches into the sort view.
 
 ## 3 · Transcribing — AI-sorted
 
-<img src="assets/screens/03-transcribing.png" width="320" />
+<p><img src="assets/walkthrough/03-transcribing.png" width="420" /></p>
 
-Omni splits one long voice memo into separate items. "Call Priya at 3, set an alarm for 6:30, remind me exponential backoff caps at six" becomes three cards:
+Omni splits one long voice memo into separate items. *"Call Priya at 3, set an alarm for 6:30, remind me exponential backoff caps at six"* becomes three cards:
 
 | # | Kind | Title | Detected |
 | - | ---- | ----- | -------- |
-| 1 | TASK · P1 · `#work` | Review Q2 design proposal before 11:30 today | "need to review before the 11:30 stand-up" |
+| 1 | TASK · P1 · `#work` | Review Q2 design proposal before 11:30 today | *"need to review before the 11:30 stand-up"* |
 | 2 | ALARM · `#personal` | Call mom at 6:00 PM | 18:00 — alarm attached |
 | 3 | NOTE · `#shopping` | Add milk and eggs to groceries list | — |
 
@@ -52,9 +52,9 @@ Classification runs locally by default using a rule-based parser. If you've poin
 
 ## 4 · Card stack
 
-<img src="assets/screens/04-card-stack.png" width="320" />
+<p><img src="assets/walkthrough/04-card-stack.png" width="420" /></p>
 
-CRED-style layered stack. The newest card is in front; older ones peek as thin strips. Counts up top — "5 items · 2 cards · 3 IDs".
+CRED-style layered stack. The newest card is in front; older ones peek as thin strips. Counts up top — *"5 items · 2 cards · 3 IDs"*.
 
 - **Drag down** to fan the stack out — each card slides down to a readable height.
 - **Drag up** to collapse them back into the stack.
@@ -68,36 +68,27 @@ Above the dock sits a glass pill button — **Add Card** — instead of a + FAB.
 
 ## 5 · Card detail
 
-<p>
-  <img src="assets/screens/05-card-detail-pay.png" width="260" />
-  <img src="assets/screens/05-card-detail-id.png" width="260" />
-</p>
+<p><img src="assets/walkthrough/05-card-detail.png" width="720" /></p>
 
-**Pay card** (left): virtual card showing chip + network pill + issuer, full PAN, holder, expiry, CVV, type. PAN and CVV are loaded from the secure store when the card mounts and are never written to the Zustand store.
-
-**ID doc** (right): shows the real photos you captured, front and back, plus the full document number loaded from the secure store.
+Pay cards show a virtual card with chip + network pill + issuer, full PAN, holder, expiry, CVV, type. ID documents show the real photos you captured, front and back, plus the full document number loaded from the secure store. PAN / CVV / document numbers load from the secure store when the card mounts and never enter the Zustand store.
 
 ---
 
 ## 6 · Camera capture
 
-<p>
-  <img src="assets/screens/06-camera-debit.png" width="220" />
-  <img src="assets/screens/06-camera-pan.png" width="220" />
-  <img src="assets/screens/06-camera-review.png" width="220" />
-</p>
+<p><img src="assets/walkthrough/06-camera.png" width="420" /></p>
 
 Full-screen camera with a card-aspect rectangle guide. A stepper at the top lets you switch document type (credit · debit · PAN · Aadhaar · DL). Capture is manual — no auto-capture — so you control when the shot is taken.
 
 On capture, ML Kit Text Recognition runs on the image. It extracts card number, expiry, holder; for ID docs it extracts the document number and name. The image never leaves the phone.
 
-The review screen (right) shows the virtual card preview, the sampled accent colour, and editable fields. Tap the card-type pill (CREDIT / DEBIT / OTHER) to cycle. Tap the brand pill (VISA / MASTERCARD / RUPAY / OTHER) to cycle. The **Save Card** button only enables when every required field is valid.
+The review screen shows the virtual card preview, the sampled accent colour, and editable fields. Tap the card-type pill (CREDIT / DEBIT / OTHER) to cycle. Tap the brand pill (VISA / MASTERCARD / RUPAY / OTHER) to cycle. The **Save Card** button only enables when every required field is valid.
 
 ---
 
 ## 7 · Manual entry
 
-<img src="assets/screens/07-manual-entry.png" width="320" />
+<p><img src="assets/walkthrough/07-manual-entry.png" width="420" /></p>
 
 If OCR misses or the card is unreadable, the manual entry screen has a live virtual-card preview that updates as you type. A custom keypad keeps the digit entry tight. Same Save Card validation as the review screen.
 
@@ -105,7 +96,7 @@ If OCR misses or the card is unreadable, the manual entry screen has a live virt
 
 ## 8 · Tasks
 
-<img src="assets/screens/08-tasks.png" width="320" />
+<p><img src="assets/walkthrough/08-tasks.png" width="420" /></p>
 
 Tasks grouped by priority (P1 / P2 / P3) with tag chip filters across the top. Tap a chip to filter; tap it again to clear. Checkbox strikes through and dims. Long-press to delete. Swipe to edit.
 
@@ -115,11 +106,7 @@ Due times trigger local notifications; P1 items without a time get a morning nud
 
 ## 9 · Alarms
 
-<p>
-  <img src="assets/screens/09-alarms-timeline.png" width="220" />
-  <img src="assets/screens/09-alarms-clock.png" width="220" />
-  <img src="assets/screens/09-alarms-ringing.png" width="220" />
-</p>
+<p><img src="assets/walkthrough/09-alarms.png" width="720" /></p>
 
 Three views:
 
@@ -133,14 +120,14 @@ Alarms go through a bundled native module (`OmniAlarmModule`) that calls the And
 
 ## 10 · Search — Ask Omni
 
-<img src="assets/screens/10-search.png" width="320" />
+<p><img src="assets/walkthrough/10-search.png" width="420" /></p>
 
 Voice-first search. Ask a question in natural language:
 
-- "How many P1 tasks today?"
-- "When's my next alarm?"
-- "Show me all HDFC cards."
-- "Which documents do I have stored?"
+- *"How many P1 tasks today?"*
+- *"When's my next alarm?"*
+- *"Show me all HDFC cards."*
+- *"Which documents do I have stored?"*
 
 The local assistant parses the topic (alarm / task / card / doc / note) and builds an answer from your store. If the cloud proxy is up, the same question goes to Gemini with your matches as context for a richer reply.
 
@@ -148,4 +135,8 @@ The local assistant parses the topic (alarm / task / card / doc / note) and buil
 
 ## Voice command → delete
 
-You can also issue destructive commands by voice. "Delete all alarms." "Remove any cards matching HDFC." The command parser recognises the verb (delete / remove / clear / cancel), the target (ALARM / TASK / CARD / DOC / NOTE / ALL), and the scope (all / keyword). It always opens a confirm screen showing exactly what will be deleted before you approve.
+You can also issue destructive commands by voice. *"Delete all alarms." "Remove any cards matching HDFC."* The command parser recognises the verb (delete / remove / clear / cancel), the target (ALARM / TASK / CARD / DOC / NOTE / ALL), and the scope (all / keyword). It always opens a confirm screen showing exactly what will be deleted before you approve.
+
+---
+
+<sub>Walkthrough images generated with Imagen 4 on Vertex AI. Pixel-accurate UI mocks are available under <a href="assets/screens/">assets/screens/</a> — rendered from the design handoff HTML via Playwright.</sub>
