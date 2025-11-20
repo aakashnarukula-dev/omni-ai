@@ -3,7 +3,9 @@
 > A voice-first personal vault. Capture tasks, alarms, notes, cards and IDs by speaking — Omni sorts them, schedules them, and keeps the sensitive bits locked behind your device biometrics.
 
 <p align="center">
-  <img src="docs/assets/walkthrough/00-hero.png" width="560" alt="Omni hero" />
+  <img src="docs/assets/screens/01-home.png" width="260" alt="Omni home" />
+  <img src="docs/assets/screens/02-voice-listening.png" width="260" alt="Voice capture" />
+  <img src="docs/assets/screens/03-transcribing.png" width="260" alt="AI-sorted transcript" />
 </p>
 
 ---
@@ -22,63 +24,96 @@ App opens through a biometric lock. Relocks after 15 seconds in background.
 
 ### 1 · Home
 
-<p align="center"><img src="docs/assets/walkthrough/01-home.png" width="420" alt="Omni home" /></p>
+<img src="docs/assets/screens/01-home.png" width="280" align="right" />
 
 Editorial dark home. Today's open tasks, today's urgent items, today's alarms — all in one glance. Priority lane, tag chip, due time, all inline. The mic sits dead-centre in the bottom dock; tapping it opens the voice overlay.
 
+<br clear="all"/>
+
 ### 2 · Voice capture
 
-<p align="center"><img src="docs/assets/walkthrough/02-voice-listening.png" width="420" alt="Voice capture" /></p>
+<img src="docs/assets/screens/02-voice-listening.png" width="280" align="right" />
 
 Full-screen dictation. A live waveform reacts to your voice amplitude while either the device speech recogniser or Deepgram (if the proxy is configured) streams interim transcript. Release to stop.
 
+<br clear="all"/>
+
 ### 3 · AI-sorted transcript
 
-<p align="center"><img src="docs/assets/walkthrough/03-transcribing.png" width="420" alt="AI-sorted transcript" /></p>
+<img src="docs/assets/screens/03-transcribing.png" width="280" align="right" />
 
 Omni splits one sentence into multiple items. A local rule-based classifier handles offline; a cloud-hosted Gemini 2.5 Flash model (through a Node proxy you own) handles the tricky ones. Each split card shows the kind (TASK / ALARM / NOTE), priority, tag, and inferred due time. Accept one, dismiss another, save the rest in one tap.
 
+<br clear="all"/>
+
 ### 4 · Card stack
 
-<p align="center"><img src="docs/assets/walkthrough/04-card-stack.png" width="420" alt="CRED-style card stack" /></p>
+<img src="docs/assets/screens/04-card-stack.png" width="280" align="right" />
 
 CRED-style stack. Newest card is in front; older cards peek a thin strip above. Drag down to fan them out; drag up to collapse. Tap a card to reveal its share button; tap again to hide.
 
+<br clear="all"/>
+
 ### 5 · Card detail
 
-<p align="center"><img src="docs/assets/walkthrough/05-card-detail.png" width="720" alt="Card detail — pay and ID" /></p>
+<p align="center">
+  <img src="docs/assets/screens/05-card-detail-pay.png" width="260" alt="Pay card detail" />
+  <img src="docs/assets/screens/05-card-detail-id.png" width="260" alt="ID doc detail" />
+</p>
 
 Pay cards render as virtual cards with the accent gradient sampled from the physical card photo. ID documents show the real captured photos. Full PAN, CVV and document number are loaded from the secure store only when the card is on screen; they never enter the serialised Zustand store.
 
 ### 6 · Camera capture
 
-<p align="center"><img src="docs/assets/walkthrough/06-camera.png" width="420" alt="Camera capture with guide" /></p>
+<p align="center">
+  <img src="docs/assets/screens/06-camera-debit.png" width="220" alt="Debit card scan" />
+  <img src="docs/assets/screens/06-camera-pan.png" width="220" alt="PAN scan" />
+  <img src="docs/assets/screens/06-camera-review.png" width="220" alt="Captured review" />
+</p>
 
 A card-aspect guide keeps the frame right. ML Kit Text Recognition runs on-device; Luhn-valid card numbers, MM/YY expiry and holder name are parsed without the image ever leaving the phone. Review screen lets you cycle card type (credit · debit · other) and brand (visa · mastercard · rupay · other) with a tap before saving.
 
 ### 7 · Manual entry
 
-<p align="center"><img src="docs/assets/walkthrough/07-manual-entry.png" width="420" alt="Manual entry with live preview" /></p>
+<img src="docs/assets/screens/07-manual-entry.png" width="280" align="right" />
 
 If OCR misses, the manual entry screen has a live virtual-card preview that updates as you type on the custom keypad. Validation (all required fields, Luhn optional) gates the Save Card button.
 
+<br clear="all"/>
+
 ### 8 · Tasks
 
-<p align="center"><img src="docs/assets/walkthrough/08-tasks.png" width="420" alt="Tasks with priority lanes" /></p>
+<img src="docs/assets/screens/08-tasks.png" width="280" align="right" />
 
 Priority lanes. Filter by P1 / P2 / P3 or by any tag chip. Strike-through on done. Long-press deletes; swipe edits.
 
+<br clear="all"/>
+
 ### 9 · Alarms
 
-<p align="center"><img src="docs/assets/walkthrough/09-alarms.png" width="720" alt="Alarms — timeline, clock, ringing" /></p>
+<p align="center">
+  <img src="docs/assets/screens/09-alarms-timeline.png" width="220" />
+  <img src="docs/assets/screens/09-alarms-clock.png" width="220" />
+  <img src="docs/assets/screens/09-alarms-ringing.png" width="220" />
+</p>
 
 Timeline rail, clock list, and the full-screen ringing view. Alarms are armed on the device through a bundled native module that talks to the system AlarmClock so they wake the phone even when the app is closed.
 
 ### 10 · Search — Ask Omni
 
-<p align="center"><img src="docs/assets/walkthrough/10-search.png" width="420" alt="Ask Omni search" /></p>
+<img src="docs/assets/screens/10-search.png" width="280" align="right" />
 
 Ask Omni anything about your data in natural language. *"How many P1 tasks today?" "Show me all HDFC card uses."* The assistant answers locally by default; if the cloud proxy is configured it hands the same question to Gemini for a better reply, still on your data only.
+
+<br clear="all"/>
+
+---
+
+## Design system
+
+<p align="center"><img src="docs/assets/screens/00-design-system.png" width="520" alt="Design tokens" /></p>
+
+Dark · typographic · voice-first. Instrument Serif for display, Geist Sans for body, JetBrains Mono for numbers and meta. One urgent accent colour; everything else is monochrome.
 
 ---
 
@@ -111,4 +146,4 @@ Full threat model in [docs/privacy.md](docs/privacy.md).
 
 ---
 
-<sub>Walkthrough imagery generated with Imagen 4 on Vertex AI. Raw UI mocks at <a href="docs/assets/screens/">docs/assets/screens/</a> (rendered from the design handoff via Playwright).</sub>
+<sub>UI screens rendered from the design handoff prototype (`design_handoff_omni/mocks/Omni.html`) via Playwright.</sub>
