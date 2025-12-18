@@ -20,6 +20,18 @@ App opens through a biometric lock. Relocks after 15 seconds in background.
 
 ---
 
+## Install
+
+Grab the latest APK from [Releases](https://github.com/aakashnarukula-dev/omni/releases/latest) and sideload:
+
+1. On your Android phone, download `omni-vX.Y.Z.apk`.
+2. Open the file. Android may warn that the installer is untrusted — tap **Install anyway**. The current build is signed with a debug key, not a Play Store key.
+3. Grant mic, camera and biometric permissions on first run.
+
+Universal APK: works on `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64`. About 148 MB.
+
+---
+
 ## Feature tour
 
 ### 1 · Home
