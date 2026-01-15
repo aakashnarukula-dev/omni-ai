@@ -20,15 +20,17 @@ App opens through a biometric lock. Relocks after 15 seconds in background.
 
 ---
 
-## Install
+## Try it
 
-Grab the latest APK from [Releases](https://github.com/aakashnarukula-dev/omni-ai/releases/latest) and sideload:
+**[▶ Live demo](https://aakashnarukula-dev.github.io/omni-ai/)** — clickable design prototype with every screen. Browser-only; voice / camera / biometric are inert (prototype, not the running app). Two-finger pinch or ctrl+wheel to zoom; click any artboard to fill the viewport; ←/→ to page.
 
-1. On your Android phone, download `omni-vX.Y.Z.apk`.
+**[📱 Android APK](https://github.com/aakashnarukula-dev/omni-ai/releases/latest)** — the real running app. Sideload steps:
+
+1. On your Android phone, download `omni-vX.Y.Z.apk` from the latest release.
 2. Open the file. Android may warn that the installer is untrusted — tap **Install anyway**. The current build is signed with a debug key, not a Play Store key.
 3. Grant mic, camera and biometric permissions on first run.
 
-Universal APK: works on `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64`. About 148 MB.
+Universal APK, ~148 MB (`arm64-v8a` + `armeabi-v7a` + `x86` + `x86_64`).
 
 ---
 
