@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Omni — Voice-first Vault</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<style>
+  html, body { margin: 0; padding: 0; background: #f0eee9; font-family: 'Geist', -apple-system, sans-serif; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="components/Chrome.jsx"></script>
+<script type="text/babel" src="components/Home.jsx"></script>
+<script type="text/babel" src="components/VoiceListen.jsx"></script>
+<script type="text/babel" src="components/Transcribe.jsx"></script>
+<script type="text/babel" src="components/Cards.jsx"></script>
+<script type="text/babel" src="components/Camera.jsx"></script>
+<script type="text/babel" src="components/Rest.jsx"></script>
+
+<script type="text/babel">
+const AB = (id, label, Comp) => (
+  <DCArtboard id={id} label={label} width={390} height={780}>
+    <Comp />
+  </DCArtboard>
+);
+
+const App = () => (
+  <DesignCanvas>
+    <DCSection id="intro" title="Omni · voice-first vault"
+      subtitle="Dark, CRED-ish, monochrome + white accent. 12 screens × 3 directions. Swipe-up fanned card stack, full-bleed camera with card guide, live waveform dictation, AI auto-sorted into tasks / notes / reminders.">
+      <DCArtboard id="system" label="System · tokens" width={520} height={340}>
+        <div style={{ padding: 22, background:'#0a0a0b', color:'#fafafa', height:'100%', fontFamily:'Geist', boxSizing:'border-box' }}>
+          <div style={{ fontFamily:'"Instrument Serif", serif', fontSize: 40, lineHeight: 1 }}>Omni</div>
+          <div style={{ fontFamily:'JetBrains Mono', fontSize: 10, letterSpacing:'.14em', textTransform:'uppercase', color:'rgba(250,250,250,.5)', marginTop: 6 }}>dark · typographic · voice-first</div>
+          <div style={{ display:'grid', gridTemplateColumns:'repeat(5,1fr)', gap: 8, marginTop: 22 }}>
+            {[['#0a0a0b','bg'],['#141416','raise'],['#1c1c20','raise-2'],['#fafafa','ink'],['#f5a524','urgent']].map(c=>(
+              <div key={c[0]}>
+                <div style={{ aspectRatio: 1, borderRadius: 8, background: c[0], border:'1px solid rgba(255,255,255,.08)' }}/>
+                <div style={{ fontFamily:'JetBrains Mono', fontSize: 9, marginTop: 6, color:'rgba(250,250,250,.6)'}}>{c[1].toUpperCase()}</div>
+                <div style={{ fontFamily:'JetBrains Mono', fontSize: 9, color:'rgba(250,250,250,.35)'}}>{c[0]}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 24, display:'flex', gap: 22 }}>
+            <div>
+              <div style={{ fontFamily:'"Instrument Serif", serif', fontSize: 26 }}>Instrument Serif</div>
+              <div style={{ fontSize: 11, color:'rgba(250,250,250,.5)' }}>display · headlines</div>
+            </div>
+            <div>
+              <div style={{ fontFamily:'Geist', fontSize: 18 }}>Geist Sans</div>
+              <div style={{ fontSize: 11, color:'rgba(250,250,250,.5)' }}>ui · body</div>
+            </div>
+            <div>
+              <div style={{ fontFamily:'JetBrains Mono', fontSize: 15 }}>JB Mono</div>
+              <div style={{ fontSize: 11, color:'rgba(250,250,250,.5)' }}>numbers · meta</div>
+            </div>
+          </div>
+        </div>
+      </DCArtboard>
+    </DCSection>
+
+    <DCSection id="home" title="01 · Home / Dashboard" subtitle="Editorial home with VoiceListen orb overlay on tap">
+      <DCArtboard id="home-main" label="Home · editorial" width={390} height={780}>
+        <HomeA />
+      </DCArtboard>
+    </DCSection>
+
+    <DCSection id="voice-listen" title="02 · Voice capture · listening" subtitle="Full-screen dictation with live waveform">
+      <DCArtboard id="vl-main" label="Big wave" width={390} height={780}>
+        <VoiceListen />
+      </DCArtboard>
+    </DCSection>
+
+    <DCSection id="transcribe" title="03 · Transcribing & AI sorting" subtitle="Live transcript split into Tasks / Notes / Reminders as Omni listens">
+      <DCArtboard id="tr-main" label="Split cards" width={390} height={780}>
+        <Transcribe />
+      </DCArtboard>
+    </DCSection>
+
+    <DCSection id="cards-overview" title="04 · Card stack · overview" subtitle="Tight stack — pay cards + ID photos layered">
+      <DCArtboard id="st-main" label="Tight stack" width={390} height={780}>
+        <StackB />
+      </DCArtboard>
+    </DCSection>
+
+    <DCSection id="cards-detail" title="05 · Card detail" subtitle="Card pulled to full size — Copy + Share only. Pay cards show virtual card; ID docs show physical photos.">
+      {AB('cd-a','A · Pay · HDFC',DetailA)}
+      {AB('cd-c','C · ID · PAN photos',DetailC)}
+    </DCSection>
+
+    <DCSection id="camera" title="06 · Camera capture with card guide" subtitle="Full-screen camera with card-aspect rectangle + OCR">
+      {AB('cam-a','A · Debit · scanning',CameraA)}
+      {AB('cam-b','B · PAN · stepper',CameraB)}
+      {AB('cam-c','C · Captured · review',CameraC)}
+    </DCSection>
+
+    <DCSection id="manual" title="07 · Number entry — live preview + keypad" subtitle="Used after OCR detects a card at the camera step. Doc type is already chosen upstream, so no chips here.">
+      <DCArtboard id="man-main" label="Live preview + keypad" width={390} height={780}>
+        <ManualB />
+      </DCArtboard>
+    </DCSection>
+
+    <DCSection id="tasks" title="08 · Tasks" subtitle="Priority lanes with tag + priority chip filters. Strike-through on done.">
+      <DCArtboard id="tk-main" label="Priority queue" width={390} height={780}>
+        <Tasks />
+      </DCArtboard>
+    </DCSection>
+
+    <DCSection id="alarms" title="09 · Alarms" subtitle="Merged reminders into alarms — timeline · clock list · active ringing">
+      {AB('rm-a','A · Timeline rail',AlarmsA)}
+      {AB('rm-b','B · Alarm clock',AlarmsB)}
+      {AB('rm-c','C · Now ringing',AlarmsC)}
+    </DCSection>
+
+    <DCSection id="search" title="10 · Search — ask Omni" subtitle="Voice-first: question, AI answer, tabs, results.">
+      <DCArtboard id="sr-main" label="Voice search" width={390} height={780}>
+        <Search />
+      </DCArtboard>
+    </DCSection>
+  </DesignCanvas>
+);
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
