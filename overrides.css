@@ -1,0 +1,9 @@
+/* Public-demo overrides: hide design-canvas authoring chrome and the
+   white-card backing that shows through the phone screen's rounded corners. */
+
+/* Match the card backing to the screen so no white shows through border-radius corners. */
+.dc-card { background: #0a0a0b !important; box-shadow: 0 20px 60px rgba(0,0,0,0.25) !important; }
+
+/* Hide the grip handle, inline label, and focus/expand button above each artboard —
+   they're authoring tools, not useful on a public demo. */
+.dc-labelrow, .dc-expand { display: none !important; }
